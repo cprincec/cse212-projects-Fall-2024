@@ -12,8 +12,27 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // STEP 1
+        // Declare an array of size 'length' of type double for storing the multiples
+        double[] multiples = new double[length];
 
-        return []; // replace this return statement with your own
+        // STEP 2
+        // Write a for loop that runs 'length' times starting from 1.
+        for (int i = 0; i < length; i++)
+        {
+            // STEP 3
+            // For each iteration of the loop, multiply 'number' by the iterator 
+            // (Begin multiplying with 1)
+            double result = number * (i + 1);
+
+            // STEP 4
+            // For each iteration, assign the result of the multiplication to the array declared in STEP 1.
+            multiples[i] = result;
+        }
+
+        // STEP 5 
+        // return the array
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +48,15 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // STEP 1
+        // Starting from position 'amount', remove 'amount' number of element(s) from 'data' 
+        // and store them in a new list
+        List<int> extractedNums = data.GetRange(data.Count - amount, amount);
+        data.RemoveRange(data.Count - amount, amount);
+
+        // STEP 2
+        // Add the elements in the new list to 'data' starting from index 0.
+        data.InsertRange(0, extractedNums);
     }
 }
