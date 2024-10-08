@@ -40,11 +40,23 @@ public class TakingTurnsQueue
         else
         {
             Person person = _people.Dequeue();
+
+            // person has more than 1 turns
+            // reduce turns and enqueue
             if (person.Turns > 1)
             {
                 person.Turns -= 1;
                 _people.Enqueue(person);
             }
+            // person has 0 or less turns turns
+            // just enqueue without reducing/changing turns
+            else if (person.Turns <= 0)
+            {
+                _people.Enqueue(person);
+            }
+
+            // person has just one turn 
+            // do nothing
 
             return person;
         }
